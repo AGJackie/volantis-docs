@@ -15,6 +15,10 @@ links:
       avatar: https://cdn.jsdelivr.net/gh/crainyday/blog@master/avatar.png
       url: https://crainyday.gitee.io
       tags: [Java]
+    - name: 精算后花园
+      avatar: https://imgkr.cn-bj.ufileos.com/5ff3c7ea-3f6e-40c7-92ec-3b926c35afd7.png
+      url: https://actuarygarden.cn
+      tags: [精算师考试]
   - group: '版本：^1.7'
     desc: 1.x的最后一个版本。
     items:
