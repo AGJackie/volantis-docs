@@ -2,14 +2,8 @@
 layout: page
 group: docs
 title: Page Settings「页面配置」
-cover: false
 meta:
   header: [title, author, updated]
-btns:
-  repo: https://github.com/xaoxuu/hexo-theme-volantis
-  bug: https://github.com/xaoxuu/hexo-theme-volantis/issues/new?assignees=&labels=BUG&template=bug-report.md
-  doubt: https://github.com/xaoxuu/hexo-theme-volantis/issues/new?labels=疑问&template=question-report.md
-  idea: https://github.com/xaoxuu/hexo-theme-volantis/issues/new?assignees=&labels=建议&template=feature-request.md
 ---
 
 如无特殊说明，本页面的配置信息写在 <red>**页面**</red> 文件的 `front-matter` 中。
@@ -25,19 +19,15 @@ btns:
 | links | 友链页面 |
 | list | 列表页面 |
 
+{% note info %}
+post 页面几乎与 page 页面相同，但是，post 页面更适用于文章，网页向下滚动时导航栏会上翻显出文章标题。
+{% endnote %}
+
 ## front-matter
 
-front-matter 是文件最上方以 `---` 分隔的区域，用于指定个别文件的变量。
+front-matter 是文件最上方以 `---` 分隔的区域，用于指定个别文件的变量。更多请见 Hexo 官方文档：[#front-matter](https://hexo.io/zh-cn/docs/front-matter)
 
-
-{% raw %}
-<details>
-<summary>
-查看全部取值
-</summary>
-{% endraw %}
-
-<overflow>
+{% folding 查看全部取值 %}
 
 | 字段        | 含义         | 值类型        | 默认值 |
 | :----------- | :------------ | :------------- | :------ |
@@ -58,8 +48,6 @@ front-matter 是文件最上方以 `---` 分隔的区域，用于指定个别文
 | mathjax           | 是否渲染公式 | Bool, String  | false  |
 | thumbnail           | 缩略图 | String | false  |
 | icons           | 图标 | Array | []  |
-
-> 没有 `seotitle` 时，以 `title` 作为网页标题。
 
 `layout:post` 时特有的字段：
 
@@ -87,11 +75,7 @@ music
 | type        | 是         | song, playlist, album, search, artist  |
 | id               | 是         | song id / playlist id / album id / search keyword   |
 
-</overflow>
-
-{% raw %}</details>{% endraw %}
-
-> 更多请见 Hexo 官方文档：[#front-matter](https://hexo.io/zh-cn/docs/front-matter)
+{% endfolding %}
 
 ## 独立页面
 
@@ -156,8 +140,6 @@ index: true
 
 结果就是筛选出所有文章中 `front-matter` 部分含有 `group: mylist` 的文章。
 
-> 上述中的 `mylist` 只是示例，你可以用任何名字作为一个列表。
-
 
 ### 友链页面
 
@@ -168,6 +150,7 @@ title: 我的朋友们   # 可选，这是友链页的标题
 links:
   - group: 分组1
     icon: fas fa-user-tie
+    desc: 这个分组的描述
     items:
     - name:     # 博客名
       avatar:   # 头像链接
@@ -178,6 +161,7 @@ links:
       desc: 描述文字
   - group: 分组2
     icon: fas fa-user-tie
+    desc: 这个分组的描述
     items:
     - name:     # 博客名
       avatar:   # 头像链接
@@ -196,8 +180,9 @@ links:
 
 ```
 
-> 姓名、头像、链接是必填项，其它选填。
-
+{% note info %}
+姓名、头像、链接是必填项，其它选填。
+{% endnote %}
 
 ### 404页面
 
@@ -216,7 +201,7 @@ valine:
 ---
 
 <center>
-<p huge gray>404</p>
+<p huge>404</p>
 
 <b>很抱歉，您访问的页面不存在</b>
 
@@ -310,9 +295,9 @@ date: 2020-02-21
 这是正文
 ```
 
-::: warning
+{% note warning %}
 **注意**： `<!-- more -->` 前后一定要有空行，不然可能导致显示错位。
-:::
+{% endnote %}
 
 ### 设置文章作者
 
@@ -340,9 +325,9 @@ music:
 ---
 ```
 
-> 实际效果见： [https://volantis.js.org/contributors/](/contributors/)
-> APlayer配置： https://github.com/metowolf/MetingJS
-
+{% note play %}
+实际效果见： [#contributors](/contributors/)
+{% endnote %}
 
 ## 显示 meta 标签
 
@@ -389,11 +374,9 @@ icons: [fas fa-fire red, fas fa-star green]
 
 图标仅在归档页面中显示，可以用来标注热门文章。
 
-
-> 可以通过 red / blue / green / yellow / orange / theme / accent 来设置图标的颜色
-> theme 为主题色: @theme_main
-> accent 为链接高亮颜色: @color_text_highlight
-
+{% note info %}
+可以通过 red / blue / green / yellow / orange / theme / accent 来设置图标的颜色
+{% endnote %}
 
 ## meta 区域显示外链按钮
 
@@ -415,10 +398,10 @@ btns:
 
 ## 是否要显示封面
 
-如果某个页面不需要封面，可以这样写：
+如果某个页面需要封面，可以这样写：
 ```yaml front-matter
 ---
-cover: false
+cover: true
 ---
 ```
 

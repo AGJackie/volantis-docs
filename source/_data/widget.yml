@@ -16,9 +16,9 @@ guide:
     - name: 特别感谢
       icon: fas fa-handshake
       url: contributors/
-    - name: 所有公告
-      icon: fas fa-bullhorn
-      url: news/archives/
+    - name: 所有博文
+      icon: fas fa-rss
+      url: archives/
     - name: 主题源码
       icon: fas fa-file-code
       url: https://github.com/xaoxuu/hexo-theme-volantis/
@@ -29,6 +29,29 @@ guide:
       url: https://github.com/xaoxuu/hexo-theme-volantis/releases/
       rel: external nofollow noopener noreferrer
       target: _blank
+
+# 反馈按钮
+feedback:
+  class: grid
+  display: [desktop, mobile]
+  header:
+    icon: fas fa-headset
+    title: 联系开发者
+    url: https://github.com/xaoxuu/hexo-theme-volantis/issues/
+  fixed: true # 固定宽度
+  rows:
+    - name: 反馈BUG
+      icon: fas fa-bug
+      url: https://github.com/xaoxuu/hexo-theme-volantis/issues/new?assignees=&labels=new%2Cquestion&template=bug-report.md
+    - name: 疑问求助
+      icon: fas fa-question-circle
+      url: https://github.com/xaoxuu/hexo-theme-volantis/issues/new?assignees=&labels=new%2Cquestion&template=question-report.md
+    - name: 提个建议
+      icon: fas fa-lightbulb
+      url: https://github.com/xaoxuu/hexo-theme-volantis/issues/new?assignees=&labels=new%2Csuggest&template=feature-request.md
+    - name: 其它问题
+      icon: fas fa-comment-dots
+      url: https://github.com/xaoxuu/hexo-theme-volantis/issues/new?assignees=&labels=new&template=other-issue.md
 
 # 项目仓库
 repos:
@@ -43,3 +66,24 @@ repos:
     - '[<img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/proj/prohud/logo.png" height="50px">](https://github.com/xaoxuu/ProHUD)'
     - '[<img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/proj/valuex/logo.png" height="50px">](https://github.com/xaoxuu/ValueX)'
     - '[<img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/proj/inspire/logo.png" height="50px">](https://github.com/xaoxuu/Inspire)'
+
+# qrcode widget
+qrcode:
+  class: qrcode
+  display: [desktop] # [desktop, mobile]
+  header:
+    icon: fas fa-mobile
+    title: 手机观看
+  height: #64px  # Automatic height if not set
+  fancybox: #true
+  images:
+    - https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png
+
+help:
+  class: page
+  display: [desktop, mobile]
+  header:
+    icon: fas fa-headset
+    title: 帮助
+  pid: faq
+  content: excerpt # excerpt, more, content

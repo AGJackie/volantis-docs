@@ -3,6 +3,10 @@ on_desktop:
   - name: 开始
     icon: fas fa-flag
     url: getting-started/
+    rows:
+      - name: 一键下载主题文件
+        icon: fas fa-download
+        url: https://github.com/xaoxuu/hexo-theme-volantis/archive/master.zip
   - name: 站点
     icon: fas fa-globe-asia
     url: site-settings/
@@ -18,6 +22,32 @@ on_desktop:
   - name: 进阶
     icon: fas fa-flask
     url: advanced-settings/
+  - name: 更多
+    icon: fas fa-ellipsis-v
+    rows:
+      - name: 主题源码
+        url: https://github.com/xaoxuu/hexo-theme-volantis/
+      - name: 更新日志
+        url: https://github.com/xaoxuu/hexo-theme-volantis/releases/
+      - name: hr
+      - name: 有疑问？
+        rows:
+          - name: 看 FAQ
+            url: faqs/
+          - name: 看 本站源码
+            url: https://github.com/xaoxuu/volantis-docs/
+          - name: 提 Issue
+            url: https://github.com/xaoxuu/hexo-theme-volantis/issues/
+      - name: hr
+      - name: 公告和测试博文
+        url: archives/
+      - name: 示例博客
+        url: examples/
+      - name: 特别感谢
+        url: contributors/
+      - name: hr
+      - name: 背景音乐
+        icon: fas fa-compact-disc
 
 # 手机端导航菜单（从右上角的按钮点击展开）
 on_mobile:
@@ -48,6 +78,6 @@ on_mobile:
   - name: 鸣谢
     icon: fas fa-handshake
     url: contributors/
-  - name: 公告
-    icon: fas fa-bullhorn
-    url: news/archives/
+  - name: 博文
+    icon: fas fa-rss
+    url: archives/

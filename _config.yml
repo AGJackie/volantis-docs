@@ -15,7 +15,7 @@ avatar: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://volantis.js.org
 root: /
-permalink: news/:title/
+permalink: :title/
 permalink_defaults:
 pretty_urls:
   trailing_index: false # Set to false to remove trailing 'index.html' from permalinks
@@ -25,11 +25,17 @@ pretty_urls:
 source_dir: source
 public_dir: public
 tag_dir: tags
-archive_dir: news/archives
+archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  - README.md
+  - manifest.json
+  - start
+  - CNAME
+  - robots.txt
+  - assets/*
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -97,22 +103,64 @@ ignore:
 theme: volantis
 # 覆盖主题配置
 theme_config:
-  # backstretch:
-  #   position: cover
-  # style:
-  #   blur:
-  #     widget: false
-  readmore: false
-  plugins:
-    busuanzi: false
-  valine:
-    placeholder: 这里仅供用户之间进行交流，如需联系开发者请移步「GitHub Issues」。
-  footer:
-    layout: [aplayer, social, copyright]
+  info:
+    cdn:
+      css: false
+  style:
+    # color:
+    #   site: '#E84D3B'
+    #   site_inner: '#FFCE48'
+    #   theme: '#E84D3B'
+    gap:
+      line: .5rem
   cover:
     search: '搜索文档'
+    features:
+      - name: 文档
+        icon: fas fa-book
+        url: getting-started/
+      - name: 博文
+        icon: fas fa-rss
+        url: archives/
+      - name: 示例
+        icon: fas fa-play-circle
+        url: examples/
+      - name: 源码
+        icon: fas fa-file-code
+        url: https://github.com/xaoxuu/hexo-theme-volantis/
+        rel: external nofollow noopener noreferrer
+        target: _blank
+      - name: 鸣谢
+        icon: fas fa-handshake
+        url: contributors/
   navbar:
     search: '搜索文档'
+  comments:
+    title: <i class='fas fa-comments'></i> 用户交流区
+    valine:
+      # appId: FIKAgh6n0pUM08JXxhJHChVQ-MdYXbMMI
+      # appKey: RJGiOYFc1fBvfox4frBPpRzU
+      path: /
+      placeholder: 这里仅供用户之间进行交流，有任何疑问请前往GitHub提交Issue，在评论区进行反馈将不会收到开发者回复。
+  footer:
+    layout: [social, copyright]
+  plugins:
+    busuanzi: false
+    backstretch:
+    #   enable: false
+      images:               # For personal use only. At your own risk if used for commercial purposes !!!
+        - https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg
+        - https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg
+        - https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg
+        - https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg
+        - https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/67239FBB-E15D-4F4F-8EE8-0F1C9F3C4E7C.jpeg
+    aplayer:
+      autoplay: true
+      volume: 0.4
+      # order: random
+      # id: 4917530132 # vol red
+      # id: 4917524698 # vol blue
+      id: 76244489 # vol white
 
 
 # Deployment
@@ -122,8 +170,8 @@ deploy:
   - type: git
     repo: git@github.com:xaoxuu/volantis.js.org.git
     branch: master
-    message: update pages
-
+    message: "Github CI Auto Builder at {{ now('YYYY-MM-DD HH:mm:ss Z') }}"
+# ssh-keygen -t rsa -b 4096 -C "xaoxuu@gmail.com" -N "" -f deploy_key
 
 
 use_cdn: true
@@ -132,14 +180,11 @@ use_cdn: true
 import:
   meta:
   - "<meta name='theme-color' content='#FFFFFF'>"
-  - "<meta name='msapplication-TileColor' content='#1BC3FB'>"
-  - "<meta name='msapplication-config' content='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/favicon/browserconfig.xml'>"
   link:
-  - "<link rel='shortcut icon' type='image/x-icon' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/favicon/favicon.ico'>"
-  - "<link rel='icon' type='image/x-icon' sizes='32x32' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/favicon/favicon-32x32.png'>"
-  - "<link rel='apple-touch-icon' type='image/png' sizes='180x180' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/favicon/apple-touch-icon.png'>"
-  - "<link rel='mask-icon' color='#1BC3FB' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/favicon/safari-pinned-tab.svg'>"
-  - "<link rel='manifest' href='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/favicon/site.webmanifest'>"
+  - "<link rel='shortcut icon' type='image/x-icon' sizes='16x16 32x32 48x48 64x64' href='/assets/favicon/favicon.ico'>"
+  - "<link rel='apple-touch-icon' type='image/png' sizes='180x180' href='/assets/favicon/favicon_180.png'>"
+  - "<link rel='mask-icon' color='#1BC3FB' href='/assets/favicon/favicon_180.png'>"
+  - "<link rel='manifest' href='/manifest.json'>"
   # script:
 
 # https://github.com/ludoviclefevre/hexo-generator-seo-friendly-sitemap
@@ -154,8 +199,8 @@ lazyload:
   onlypost: false
   loadingImg: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/placeholder/d570170f4f12e1ee829ca0e85a7dffeb77343a.svg
 
-# hexo-all-minifier
-all_minifier: true
+# npm install hexo-all-minifier --save
+all_minifier: false
 
 # hexo-autonofollow
 nofollow:
@@ -186,50 +231,18 @@ offline:
       options:
         origin: cdnjs.cloudflare.com
 
-markdown:
-  render:
-    html: true
-    xhtmlOut: false
-    breaks: true
-    linkify: true
-    typographer: true
-    quotes: '“”‘’'
-  plugins:
-    - markdown-it-abbr
-    - markdown-it-footnote
-    - markdown-it-ins
-    - markdown-it-sub
-    - markdown-it-sup
-    - markdown-it-deflist
-    - markdown-it-imsize
-    - markdown-it-mark
-    - markdown-it-regexp
-    - markdown-it-task-checkbox
-    - name: markdown-it-container
-      options: success
-    - name: markdown-it-container
-      options: info
-    - name: markdown-it-container
-      options: warning
-    - name: markdown-it-container
-      options: danger
-    - markdown-it-deflist
-    - name: markdown-it-emoji
-      options:
-        shortcuts: {}
-  anchors:
-    level: 2
-    collisionSuffix: ''
-    permalink: false
-    permalinkClass: 'header-anchor'
-    permalinkSide: 'left'
-    permalinkSymbol: '¶'
-    case: 0
-    separator: ''
-
-
-# leancloud国际版
-leancloud:
-  app_id: FIKAgh6n0pUM08JXxhJHChVQ-MdYXbMMI
-  app_key: RJGiOYFc1fBvfox4frBPpRzU
-  valine_path: /
+marked:
+  gfm: true
+  pedantic: false
+  breaks: true
+  smartLists: true
+  smartypants: true
+  modifyAnchors: 0
+  autolink: true
+  sanitizeUrl: false
+  headerIds: true
+  prependRoot: false
+  external_link:
+    enable: true
+    exclude: []
+    nofollow: true
